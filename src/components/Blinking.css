@@ -1,0 +1,13 @@
+.blinking-word {
+    transition: opacity 0.55s ease-in-out;
+  }
+  
+  .visible {
+    opacity: 1;
+  }
+  
+  .hidden {
+    opacity: 0;
+    pointer-events: none; /* Optional: disable interaction with invisible element */
+  }
+  
