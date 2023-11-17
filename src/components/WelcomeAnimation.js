@@ -5,6 +5,7 @@ const WelcomeAnimation = () => {
   const [text, setText] = useState('');
   const [index, setIndex] = useState(0);
   const [soundInterval, setSoundInterval] = useState(350);
+  const audio = new Audio('/key_cut.mp3');
   useEffect(() => {
     const welcomeText = 'Welcome To Software Engineering Week...';
     const intervalId = setInterval(() => {
@@ -34,7 +35,7 @@ const WelcomeAnimation = () => {
   const playSound = () => {
     // Add your sound logic here
     // For example, using the HTML Audio element
-    const audio = new Audio('/key_cut.mp3');
+    
     audio.play();
   };
 
