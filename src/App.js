@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
 import React from "react";
-import ReactDOM from "react-dom";
 
 import { ReactSketchCanvas } from 'react-sketch-canvas';
 
@@ -10,23 +8,32 @@ const styles = {
   borderRadius: '0.25rem',
 };
 
-const Canvas = () => {
+const Canvas = ({onChange}) => {
   return (
     <ReactSketchCanvas
       style={styles}
       width="600"
       height="400"
       strokeWidth={4}
-      strokeColor="red"
+      strokeColor="black"
+      onStroke={onChange}
     />
   );
 };
 
 function App() {
+  const [isSigned,setIsSigned] = React.useState(false)
   return (
     <div className="App">
       <header className="App-header">
-        <Canvas />
+        
+        <Canvas onChange={()=>{
+          setIsSigned(true)
+        }}/>
+        <button disabled={!isSigned} onClick={()=>{
+          
+          alert('Button is Clicked'+isSigned)
+        }}>Submit</button>
       </header>
     </div>
   );
