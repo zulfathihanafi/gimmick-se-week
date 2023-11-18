@@ -1,11 +1,21 @@
 import React, { useState, useEffect } from 'react';
+import './LoadingBar.css'
+const audio = new Audio('/loading.mp3');
+const transitAudio = new Audio('/transit.mp3');
 
 const LoadingBar = ({ setStartLoading, setStartWord }) => {
   const [progress, setProgress] = useState(0);
+  const [words,setWords] = useState('Authenticating')
+  const playSound = () => {
+    // Add your sound logic here
+    // For example, using the HTML Audio element
 
+    audio.play();
+  };
   useEffect(() => {
+    playSound()
     const simulateLoading = () => {
-      const duration = 3000; // 3 seconds
+      const duration = 2000; // 3 seconds
       const interval = 100; // Update every 100 milliseconds
       const steps = duration / interval;
 
@@ -20,10 +30,12 @@ const LoadingBar = ({ setStartLoading, setStartWord }) => {
           clearInterval(timer);
 
           // Wait for 5ms before updating state
+          
           setTimeout(() => {
             setStartLoading(false);
             setStartWord(true);
-          }, 500);
+            
+          }, 1000);
         }
       }, interval);
 
@@ -35,7 +47,7 @@ const LoadingBar = ({ setStartLoading, setStartWord }) => {
 
   return (
     <div>
-      <h2>Loading Bar</h2>
+      <h2>{words}</h2>
       <div
         style={{
           width: `${progress}%`,
@@ -45,7 +57,7 @@ const LoadingBar = ({ setStartLoading, setStartWord }) => {
           transition: 'width 0.3s ease',
         }}
       ></div>
-      <div>{Number(progress).toFixed(0)} %</div>
+      <h3>{Number(progress).toFixed(0)} %</h3>
     </div>
   );
 };
