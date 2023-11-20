@@ -19,7 +19,12 @@ const WelcomeAnimation = ({isDivAbove, setDivAbove}) => {
 
         playSound();
 
-        
+        if (welcomeText[index] == "S") {
+          setSoundInterval(soundInterval - 200)
+        }
+        if (welcomeText[index] == "E") {
+          setSoundInterval(soundInterval - 80)
+        }
 
         setText((prevText) => prevText + welcomeText[index]);
         setIndex((prevIndex) => prevIndex + 1);

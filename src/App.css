@@ -83,13 +83,14 @@
   }
 }
 .above {
-  transform: translateY(-30vh);
+  transform: translateY(-35vh);
 }
 
 .above-image {
   opacity: 0;
   visibility: hidden;
   transition: opacity 2s ease-in-out;
+  transform: translateY(50px);
 }
 
 /* .above-image.fade-in {
