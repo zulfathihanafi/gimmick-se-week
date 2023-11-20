@@ -51,7 +51,7 @@ function App() {
               <Canvas onChange={() => {
                 setIsSigned(true)
               }} />
-              <h5> Please Sign to get Started </h5>
+              <h3> Please Sign to get Started </h3>
               <button disabled={!isSigned} className={'myButton'} onClick={() => {
                 setIsSubmitted(true)
                 setStartLoading(true)

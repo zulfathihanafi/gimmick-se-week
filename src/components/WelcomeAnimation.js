@@ -9,7 +9,7 @@ const WelcomeAnimation = ({isDivAbove, setDivAbove}) => {
   };
   const [text, setText] = useState('');
   const [index, setIndex] = useState(0);
-  const [soundInterval, setSoundInterval] = useState(300);
+  const [soundInterval, setSoundInterval] = useState(350);
   const audio = new Audio('/key_cut.mp3');
   useEffect(() => {
     var spaceIndex = 0
@@ -18,6 +18,13 @@ const WelcomeAnimation = ({isDivAbove, setDivAbove}) => {
       if (index < welcomeText.length) {
 
         playSound();
+
+        if (welcomeText[index] == "S") {
+          setSoundInterval(soundInterval - 200)
+        }
+        if (welcomeText[index] == "E") {
+          setSoundInterval(soundInterval - 80)
+        }
 
         setText((prevText) => prevText + welcomeText[index]);
         setIndex((prevIndex) => prevIndex + 1);
