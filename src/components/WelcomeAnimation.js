@@ -9,7 +9,7 @@ const WelcomeAnimation = ({isDivAbove, setDivAbove}) => {
   };
   const [text, setText] = useState('');
   const [index, setIndex] = useState(0);
-  const [soundInterval, setSoundInterval] = useState(350);
+  const [soundInterval, setSoundInterval] = useState(200);
   const audio = new Audio('/key_cut.mp3');
   useEffect(() => {
     var spaceIndex = 0
