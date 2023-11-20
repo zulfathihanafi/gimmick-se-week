@@ -16,30 +16,35 @@ const WelcomeAnimation = ({isDivAbove, setDivAbove}) => {
     const welcomeText = ' Welcome To Software Engineering Week...';
     const intervalId = setInterval(() => {
       if (index < welcomeText.length) {
-
-        playSound();
-
-        
-
+        if (!audio.playing) {
+          playSound();
+        }
         setText((prevText) => prevText + welcomeText[index]);
         setIndex((prevIndex) => prevIndex + 1);
       } else {
-        setDivAbove(true)
+        setDivAbove(true);
         clearInterval(intervalId);
         // You can add your sound logic here
-
       }
     }, soundInterval); // Adjust the interval duration as needed
-
+    if (welcomeText[index] == "S") {
+      setSoundInterval(soundInterval - 200)
+    }
+    if (welcomeText[index] == "E") {
+      setSoundInterval(soundInterval - 80)
+    }
     return () => clearInterval(intervalId);
   }, [index]);
 
   const playSound = () => {
     // Add your sound logic here
     // For example, using the HTML Audio element
-
     audio.play();
+    audio.addEventListener('ended', () => {
+      // Proceed to the next action after the sound has finished playing
+    });
   };
+  
 
   return (
     <>
