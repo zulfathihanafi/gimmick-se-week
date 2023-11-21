@@ -62,7 +62,7 @@ function App() {
           {startLoading && <LoadingBar setStartLoading={setStartLoading} setStartWord={setStartWord} />}
           {startWord && <WelcomeAnimation isDivAbove={isDivAbove} setDivAbove={setDivAbove} />}
           <div className={`above-image ${isDivAbove ? 'fade-in' : ''} ${isDivAbove ? 'visible' : 'hidden'}`} style={{ position: 'absolute' }} >
-            {<img src='/tentative.jpeg' width={'70%'} />}
+            {<img src='/tentative.jpeg' width={'60%'} />}
           </div>
         </div>
       </body>
